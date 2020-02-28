@@ -3,8 +3,8 @@ An advanced Net.Core HTTP library covering all aspects of HTTP communication suc
 
 ## Dependencies
 This repository uses the following dependencies:  
-**NgUtil:** For various utility and helper methods. https://github.com/nattguld/Net.Core.NgUtil 
-**dcsoup** For parsing HTML documents. https://github.com/matarillo/dcsoup 
+**NgUtil:** For various utility and helper methods. https://github.com/nattguld/Net.Core.NgUtil
+**dcsoup** For parsing HTML documents. https://github.com/matarillo/dcsoup
 **jint (optional)** For parsing javascript, this is optional in the scenario where a javascript equation must be solved and sent back to the web server. https://github.com/sebastienros/jint 
 
 ## About
