@@ -3,8 +3,8 @@ An advanced Net.Core HTTP library covering all aspects of HTTP communication suc
 
 ## Dependencies
 This repository uses the following dependencies:  
-**NgUtil:** For various utility and helper methods. https://github.com/nattguld/Net.Core.NgUtil 
-**dcsoup** For parsing HTML documents. https://github.com/matarillo/dcsoup 
+**NgUtil:** For various utility and helper methods. https://github.com/nattguld/Net.Core.NgUtil  
+**dcsoup** For parsing HTML documents. https://github.com/matarillo/dcsoup  
 **jint (optional)** For parsing javascript, this is optional in the scenario where a javascript equation must be solved and sent back to the web server. https://github.com/sebastienros/jint 
 
 ## About
@@ -15,9 +15,10 @@ NgHTTP is a library built on raw sockets for maximum customizibility. This proje
 There is a base class you can derive from to create custom sessions "HttpSession".
 2 types of sessions are available by default, WebSession & AppSession.
 WebSession emulates browser behavior while AppSession emulates in-app behavior.
+SSL is automatically handled by listening to the webserver and upgrading to SSL when required.
 ```csharp
 using (WebSession session = new WebSession(HttpSessionPolicy sessionPolicy, BrowserConfig browserCfg, Proxy proxy)) { }
-using (AppSession session = new AppSession(Proxy proxy)) { }
+using (AppSession session = new AppSession(HttpSessionPolicy sessionPolicy, BrowserConfig browserCfg, Proxy proxy)) { }
 ```
 
 ### Use of proxies
@@ -90,9 +91,6 @@ RequestResponse rr = c.DispatchRequest(new PostRequest("url", body));
 
 ### Custom request example
 ```csharp
-StringStringKeyValuePairContainer customHeaders = new StringStringKeyValuePairContainer();
-customHeaders.Put("key", "value");
-
 Request request = new Request("url", expectedResponseCode, body, RequestProperty.XMLHttpRequest) {
     ResponseEncType = EncType.Json
 };
