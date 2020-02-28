@@ -1,4 +1,7 @@
-﻿using NgUtil.Systems;
+﻿using NgHTTP.Util;
+using NgUtil.Systems;
+using System;
+using System.Text;
 
 namespace NgHTTP.Configs {
     public static class HttpConfig {

@@ -41,7 +41,6 @@ namespace NgHTTP.Requests.Responses.Bodies {
 				bodySize = MathUtil.ParseInt(contentLength, true, 0);
 			}
 			if (!chunked && contentLength == null) {
-				//TODO Temporary removed to not block throw new NetException("Response for " + request.getUrl() + " is not chunked but has no Content-Length header.");
 				logger.Warning("Response for " + request.Url + " is not chunked but has no Content-Length header.");
 			}
 			Console.WriteLine("Parsing server response body for [" + request.Url + "] with properties [Content-Encoding: " + contentEncoding

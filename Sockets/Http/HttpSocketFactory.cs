@@ -35,8 +35,6 @@ namespace NgHTTP.Sockets.Http {
         }
 
         private static HttpSocket InsecureConnect(Proxy proxy, string hostAddress, int port, BrowserConfig browserCfg) {
-            Console.WriteLine("INSECURE CONNECT");
-
             logger.Debug(string.Format("Connecting socket ({0}:{1}, proxy => {2})", hostAddress, port, proxy != null));
 
             Socket socket = proxy is null 
@@ -56,8 +54,6 @@ namespace NgHTTP.Sockets.Http {
         }
 
         private static HttpSocket SecureConnect(Proxy proxy, string hostAddress, int port, BrowserConfig browserCfg) {
-            Console.WriteLine("SSL CONNECT");
-
             logger.Debug(string.Format("Connecting SSL socket ({0}:{1}, proxy => {2})", hostAddress, port, proxy != null));
 
             Socket socket = proxy is null 

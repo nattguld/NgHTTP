@@ -29,16 +29,6 @@ namespace NgHTTP.Requests.Responses.Interpretors.Impl {
             this.contentType = contentType;
         }
 
-        public static void CopyTo(Stream src, Stream dest) {
-            byte[] bytes = new byte[4096];
-
-            int cnt;
-
-            while ((cnt = src.Read(bytes, 0, bytes.Length)) != 0) {
-                dest.Write(bytes, 0, cnt);
-            }
-        }
-
         public override StringResponseBody Interpret(Stream stream) {
             bool hasContentEncoding = !string.IsNullOrEmpty(contentEncoding);
             IResponseDecoder decoder = !hasContentEncoding ? null : decoders.GetValueOrDefault(contentEncoding.ToLower());
